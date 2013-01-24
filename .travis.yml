@@ -1,12 +1,12 @@
 language: ruby
-before_script:
-  - bundle exec rake db:migrate
+# before_script:
+#   - bundle exec rake db:migrate
 rvm:
   - 1.9.2
   - 1.9.3
   - jruby-19mode
   - rbx-19mode
-  - ruby-head
+  # - ruby-head
 notifications:
   recipients:
     - jeremy.olliver@gmail.com
