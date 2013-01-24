@@ -33,8 +33,6 @@ module NewRelicPing
       'X' + name.to_s.camelize.gsub(/([A-Z])/) { "-#{$1}"}
     end
 
-    private
-
     def configuration
       NewRelicPing.config
     end

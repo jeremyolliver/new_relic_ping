@@ -43,7 +43,7 @@ module NewRelicPing
     def load_default_monitors
       if defined?(ActiveRecord::Base)
         monitor('database') do
-          ActiveRecord::Base.connection.execute("select count(*) from schema_migrations")
+          ActiveRecord::Base.connection.select_values("select 1") == [1]
         end
       end
     end
@@ -54,15 +54,15 @@ module NewRelicPing
         @monitors.each do |label, mon|
           return_value = nil
           time = Benchmark.realtime do
-            responses["#{label}-Response"] = (mon.call).to_s
+            responses["#{label}_response"] = (mon.call).to_s
           end
-          responses["#{label}-Time"] = "#{time.inspect} seconds"
+          responses["#{label}_time"] = "#{time.inspect} seconds"
         end
         return :ok, responses
       rescue => e
+        responses['error_message'] = e.message
         return :error, responses
       end
-      return :unknown, responses
     end
 
   end
