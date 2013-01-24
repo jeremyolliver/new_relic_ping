@@ -1,6 +1,4 @@
 language: ruby
-# before_script:
-#   - bundle exec rake db:migrate
 rvm:
   - 1.9.2
   - 1.9.3
