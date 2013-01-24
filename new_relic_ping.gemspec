@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Jeremy Olliver"]
   s.email       = ["jeremy.olliver@gmail.com"]
   s.homepage    = "https://github.com/jeremyolliver/new_relic_ping"
-  s.summary     = "Provides endpoint for NewRelic HTTP ping monitoring"
+  s.summary     = "Rails endpoint for NewRelic HTTP ping monitoring"
   s.description = "Provides endpoint for NewRelic HTTP ping monitoring for Rails applications"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md", "CHANGELOG.md"]

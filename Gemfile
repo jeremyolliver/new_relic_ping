@@ -9,10 +9,11 @@ group :development, :test do
   gem "simplecov"
 
   # for CRuby, Rubinius, including Windows and RubyInstaller
-  gem "sqlite3"#, :platform => [:ruby, :mswin, :mingw]
+  gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
 
   # for JRuby
-  # gem "jdbc-sqlite3", :platform => :jruby
+  gem "jdbc-sqlite3", :platform => :jruby
+  gem "activerecord-jdbcsqlite3-adapter", :platform => :jruby
 end
 
 # jquery-rails is used by the dummy application
