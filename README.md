@@ -1,7 +1,5 @@
-NewRelicPing
+NewRelicPing [![Build Status](https://secure.travis-ci.org/jeremyolliver/new_relic_ping.png)](http://travis-ci.org/jeremyolliver/new_relic_ping) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/jeremyolliver/new_relic_ping)
 ============
-
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/jeremyolliver/new_relic_ping)
 
 Add a URL to your rails application to respond to ping requests from NewRelic (and other services).
 This is something that we've found we often implement. While you can often simply call the root URL
