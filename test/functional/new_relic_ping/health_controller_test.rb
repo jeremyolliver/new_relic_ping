@@ -17,7 +17,7 @@ module NewRelicPing
       assert_response :success
 
       assert_equal 'true', @response.header['X-Database-Response'], 'database return value should be present'
-      assert_match @response.header['X-Database-Time'], /\d\.\d{6,} seconds/, 'database call time should be present'
+      assert_match @response.header['X-Database-Time'], /\d\.\d+ seconds/, 'database call time should be present'
     end
 
     test 'failed health status' do
