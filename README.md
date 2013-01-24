@@ -2,6 +2,10 @@ NewRelicPing
 ============
 
 Add a URL to your rails application to respond to ping requests from NewRelic (and other services).
+This is something that we've found we often implement. While you can often simply call the root URL
+when monitoring, that isn't always possible if the homepage is protected by a login screen which
+returns a 403 status. Adding this gem keeps the ping URL's out of your main application space, and
+as a bonus, makes additional support for data stores or other services in your heartbeat a breeze.
 
 Usage
 -----
@@ -59,9 +63,7 @@ You can now configure any monitoring/alerting tools that you use, such as pingdo
 checking if your application is alive.
 
     curl -v http://localhost:3000/status/ping
-
     curl -v http://localhost:3000/status/health
-
 
 Planned Features
 ================
@@ -80,5 +82,5 @@ Contributing to NewRelicPing
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
-
+- - -
 Copyright (c) 2013 Jeremy Olliver, released under the MIT license
