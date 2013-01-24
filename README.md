@@ -1,6 +1,8 @@
 NewRelicPing
 ============
 
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/jeremyolliver/new_relic_ping)
+
 Add a URL to your rails application to respond to ping requests from NewRelic (and other services).
 This is something that we've found we often implement. While you can often simply call the root URL
 when monitoring, that isn't always possible if the homepage is protected by a login screen which
