@@ -5,6 +5,16 @@ source "http://rubygems.org"
 # development dependencies will be added by default to the :development group.
 gemspec
 
+group :development, :test do
+  gem "simplecov"
+
+  # for CRuby, Rubinius, including Windows and RubyInstaller
+  gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
+
+  # for JRuby
+  gem "jdbc-sqlite3", :platform => :jruby
+end
+
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
 

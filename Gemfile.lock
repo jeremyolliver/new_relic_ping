@@ -99,6 +99,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  jdbc-sqlite3
   jquery-rails
   new_relic_ping!
   simplecov
