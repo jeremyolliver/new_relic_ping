@@ -10,14 +10,14 @@ Gem::Specification.new do |s|
   s.authors     = ["Jeremy Olliver"]
   s.email       = ["jeremy.olliver@gmail.com"]
   s.homepage    = "https://github.com/jeremyolliver/new_relic_ping"
-  s.summary     = "Provides endpoint for NewRelic ping monitoring + capistrano integration"
-  s.description = "Provides endpoint for NewRelic ping monitoring + capistrano integration to enable/disable"
+  s.summary     = "Provides endpoint for NewRelic HTTP ping monitoring"
+  s.description = "Provides endpoint for NewRelic HTTP ping monitoring for Rails applications"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 3.2.9" # TODO: check compatibility and relax constraint if possible
+  s.add_dependency "rails", "~> 3.2" # Relaxed version constraint, we don't want to be a barrier to upgrading
   s.add_dependency "newrelic_rpm"
 
-  s.add_development_dependency "sqlite3" # TODO: is this required?, add tests
+  # s.add_development_dependency "sqlite3"
 end
