@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Provides endpoint for NewRelic HTTP ping monitoring"
   s.description = "Provides endpoint for NewRelic HTTP ping monitoring for Rails applications"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md", "CHANGELOG.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.2" # Relaxed version constraint, we don't want to be a barrier to upgrading
