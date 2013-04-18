@@ -6,7 +6,7 @@ source "http://rubygems.org"
 gemspec
 
 group :development, :test do
-  gem "simplecov"
+  gem "coveralls", :require => false
 
   # for CRuby, Rubinius, including Windows and RubyInstaller
   gem "sqlite3", :platform => [:ruby, :mswin, :mingw]

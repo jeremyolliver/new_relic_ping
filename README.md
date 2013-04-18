@@ -1,5 +1,8 @@
-NewRelicPing [![Build Status](https://travis-ci.org/jeremyolliver/new_relic_ping.png?branch=master)](https://travis-ci.org/jeremyolliver/new_relic_ping) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/jeremyolliver/new_relic_ping)
+NewRelicPing
 ============
+
+[![Gem Version](https://badge.fury.io/rb/new_relic_ping.png)](http://badge.fury.io/rb/new_relic_ping) Latest public release
+[![Build Status](https://travis-ci.org/jeremyolliver/new_relic_ping.png?branch=master)](https://travis-ci.org/jeremyolliver/new_relic_ping) [![Code Climate](https://codeclimate.com/github/jeremyolliver/new_relic_ping.png)](https://codeclimate.com/github/jeremyolliver/new_relic_ping) Master branch status
 
 Add a URL to your rails application to respond to ping requests from NewRelic (and other services).
 This is something that we've found we often implement. While you can often simply call the root URL
