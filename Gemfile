@@ -7,7 +7,7 @@ gemspec
 
 group :development, :test do
   gem "coveralls", :require => false
-  # gem "pry-debugger"
+  # gem "pry" # Note: debugger etc don't install on jruby and rubinius
 
   # for CRuby, Rubinius, including Windows and RubyInstaller
   gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
