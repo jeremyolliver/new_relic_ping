@@ -2,6 +2,17 @@
 
 This file is used to list changes made in each version of new\_relic\_ping.
 
+## 0.1.1:
+
+Bugfixes:
+
+* Fix initialization with nested hashes in configuration (unused so far)
+
+Features:
+
+* Removed dependency on `newrelic_rpm` gem
+* Now with 100% code coverage!
+
 ## 0.1.0:
 
 * Initial release of new\_relic\_ping
