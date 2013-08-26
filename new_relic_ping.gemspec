@@ -18,5 +18,6 @@ Gem::Specification.new do |s|
   s.license = "MIT"
 
   s.add_dependency "rails", "~> 3.2" # Relaxed version constraint, we don't want to be a barrier to upgrading
-  s.add_dependency "newrelic_rpm"
+  # s.add_dependency "newrelic_rpm"
+  s.add_development_dependency "pry-debugger"
 end
