@@ -21,11 +21,7 @@ module NewRelicPing
     end
 
     def []=(key, value)
-      if value.class == Hash
-        @data[key.to_sym] = Config.new(value)
-      else
-        @data[key.to_sym] = value
-      end
+      @data[key.to_sym] = value
     end
 
     def method_missing(sym, *args)

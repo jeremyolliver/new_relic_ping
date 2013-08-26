@@ -10,6 +10,16 @@ class ConfigurationTest < ActiveSupport::TestCase
     assert NewRelicPing.config.is_a?(NewRelicPing::Configuration), "Should produce config instance without needing configuring first"
   end
 
+  test "initialization with preset attributes" do
+    custom_config = NewRelicPing::Configuration.new({:foo => "bar"})
+    assert_equal "bar", custom_config.foo
+  end
+
+  test "nested hash config" do
+    custom_config = NewRelicPing::Configuration.new({'foo' => {'bar' => 'baz'}})
+    assert_equal({'bar' => 'baz'}, custom_config.foo)
+  end
+
   test "setting custom monitors" do
     NewRelicPing.configure do |c|
       c.dummy_setting = 'exists'
