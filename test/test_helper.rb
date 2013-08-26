@@ -9,7 +9,6 @@ SimpleCov.start('rails') do
   add_filter 'test/dummy'
 end
 
-require 'minitest/pride'
 
 # Configure Rails Environment
 ENV["RAILS_ENV"] = "test"
