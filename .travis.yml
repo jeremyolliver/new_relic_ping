@@ -6,7 +6,10 @@ rvm:
   - 2.0.0
   - jruby-19mode
   - rbx-19mode
-  - ruby-head
+branches:
+  only:
+    - master
+    - develop
 notifications:
   recipients:
     - jeremy.olliver@gmail.com
