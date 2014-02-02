@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Rails endpoint for NewRelic HTTP ping monitoring"
   s.description = "Provides endpoint for NewRelic HTTP ping monitoring for Rails applications"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md", "CHANGELOG.md"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "README.md", "CHANGELOG.md"]
   s.test_files = Dir["test/**/*"]
   s.license = "MIT"
 
