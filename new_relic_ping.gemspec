@@ -17,6 +17,6 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
   s.license = "MIT"
 
-  s.add_dependency "rails", "~> 3.2" # Relaxed version constraint, we don't want to be a barrier to upgrading
+  s.add_dependency "rails", ">= 3.2" # Relaxed version constraint, we don't want to be a barrier to upgrading
   # s.add_dependency "newrelic_rpm"
 end
