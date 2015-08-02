@@ -1,4 +1,4 @@
-require_dependency "new_relic_ping/application_controller"
+require_dependency 'new_relic_ping/application_controller'
 
 module NewRelicPing
   class HealthController < ApplicationController

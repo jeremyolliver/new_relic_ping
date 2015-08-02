@@ -39,7 +39,7 @@ module NewRelicPing
     def load_default_monitors
       if defined?(ActiveRecord::Base)
         monitor('database') do
-          ActiveRecord::Base.connection.select_values("select 1") == [1]
+          ActiveRecord::Base.connection.select_values('select 1') == [1]
         end
       end
     end
