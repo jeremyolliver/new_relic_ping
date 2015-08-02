@@ -19,21 +19,38 @@ Add this to your Gemfile
 
     gem 'new_relic_ping'
 
-mount in your routes.rb
+This enables two URL's (they are automatically appended in the existing routeset)
 
-    mount NewRelicPing::Engine => '/status'
-    # Or optionally mount this at an obfuscated url instead
-    # mount NewRelicPing::Engine => '/status/5260b194fdea00da7e29b92f54d03028'
+    /heartbeat
+    /heartbeat/health
 
-This enables two URL's
-
-    /status/ping
-    /status/health
-
-ping will respond with the text OK, and status 200 when your rails server is available.
+heartbeat will respond with the text OK, and status 200 when your rails server is available.
 The health action is to allow more deep monitoring of the health of your service. You can configure
 additional checks to run when this controller action is hit, this allows you to keep tabs on things
 like response times for services or data stores your app is dependent on.
+
+Routes handling
+-----------------------------
+
+By default this gem appends the above routes in your current routeset, if you need to customize them you can use
+the following methods available via configuration methods (for instance in an initializer) 
+
+
+    # config/initializers/newrelic_ping.rb
+    NewRelicPing.configure do |c|
+      # Customize where the engine is mounted, default is `/heartbeat`
+      c.mount_on '/whatever'
+      # Customize where the route is mounted
+      c.append_route!   # default if not specified
+      c.prepend_route!  # to prepend the engine route
+      c.dont_mount!     # if you want to manually mount the route in whatever position
+    end
+    
+In the last case you have to mount the route by yourself by using a line like this in your app `routes.rb`
+
+    mount NewRelicPing::Engine => '/whatever-path-you-want'
+    
+This can be useful if you need to apply some route constraint or if you want to protect the route in some way.
 
 Configuring monitoring checks
 -----------------------------
@@ -50,9 +67,12 @@ application.rb
         # though you can override it by redefining it in your configuration
         c.monitor('database') do
           ActiveRecord::Base.connection.execute("select count(*) from schema_migrations")
+          # If you are using MySQL you can do the following which may save some resources on busy servers
+          ActiveRecord::Base.connection.raw_connection.ping          
         end
         c.monitor('redis') do
-          Redis.client.get('test-key')
+          # Block return value is ignored, you must raise to fail a check
+          raise 'Redis ping failed' unless 'PONG' == Redis.client.ping
         end
       end
     ...
@@ -67,8 +87,8 @@ if the block raises an exception.
 You can now configure any monitoring/alerting tools that you use, such as pingdom, or new relic to 'ping' this url,
 checking if your application is alive.
 
-    curl -v http://localhost:3000/status/ping
-    curl -v http://localhost:3000/status/health
+    curl -v http://localhost:3000/heartbeat
+    curl -v http://localhost:3000/heartbeat/health
 
 Planned Features
 ================
