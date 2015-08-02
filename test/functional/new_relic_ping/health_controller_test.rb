@@ -3,17 +3,21 @@ require 'test_helper'
 module NewRelicPing
   class HealthControllerTest < ActionController::TestCase
 
+    def setup
+      @routes = NewRelicPing::Engine.routes
+    end
+
     def teardown
       clean_ping_config
     end
 
     test 'ping' do
-      get :ping, use_route: 'new_relic_ping'
+      get :ping
       assert_response :success
     end
 
     test 'health' do
-      get :health, use_route: 'new_relic_ping'
+      get :health
       assert_response :success
 
       assert_equal 'true', @response.header['X-Database-Response'], 'database return value should be present'
@@ -26,7 +30,7 @@ module NewRelicPing
           raise 'this is your friendly failure message'
         end
       end
-      get :health, use_route: 'new_relic_ping'
+      get :health
 
       assert_response :error
       assert_equal 'this is your friendly failure message', @response.header['X-Error-Message']
