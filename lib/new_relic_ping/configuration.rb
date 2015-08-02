@@ -48,7 +48,6 @@ module NewRelicPing
       responses = {}
       begin
         @monitors.each do |label, mon|
-          return_value = nil
           time = Benchmark.realtime do
             responses["#{label}_response"] = (mon.call).to_s
           end
