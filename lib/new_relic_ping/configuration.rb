@@ -71,7 +71,9 @@ module NewRelicPing
     def load_default_monitors
       if defined?(ActiveRecord::Base)
         monitor('database') do
-          ActiveRecord::Base.connection.select_values('select 1') == [1]
+          # Delegate activeness check to actual AR implementation
+          # in MySQL it would call mysql.ping in postgres it fallback to SELECT 1
+          ActiveRecord::Base.connection.active?
         end
       end
     end

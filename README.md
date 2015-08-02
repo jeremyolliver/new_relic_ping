@@ -67,8 +67,6 @@ application.rb
         # though you can override it by redefining it in your configuration
         c.monitor('database') do
           ActiveRecord::Base.connection.execute("select count(*) from schema_migrations")
-          # If you are using MySQL you can do the following which may save some resources on busy servers
-          ActiveRecord::Base.connection.raw_connection.ping          
         end
         c.monitor('redis') do
           # Block return value is ignored, you must raise to fail a check
