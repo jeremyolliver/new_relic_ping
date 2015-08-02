@@ -1,7 +1,10 @@
-require_dependency "new_relic_ping/application_controller"
+require_dependency 'new_relic_ping/application_controller'
 
 module NewRelicPing
   class HealthController < ApplicationController
+
+    # Don't include these actions as transactions in newrelic reports
+    newrelic_ignore if respond_to?(:newrelic_ignore)
 
     # Return an okay if the Application Server is alive
     def ping

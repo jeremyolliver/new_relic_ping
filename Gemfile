@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 # Declare your gem's dependencies in new_relic_ping.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -6,15 +6,15 @@ source "https://rubygems.org"
 gemspec
 
 group :development, :test do
-  gem "coveralls", :require => false
+  gem 'coveralls', :require => false
   # gem "pry" # Note: debugger etc don't install on jruby and rubinius
 
   # for CRuby, Rubinius, including Windows and RubyInstaller
-  gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
+  gem 'sqlite3', :platform => [:ruby, :mswin, :mingw]
 
   # JRuby support
-  gem "jdbc-sqlite3", :platform => :jruby
-  gem "activerecord-jdbcsqlite3-adapter", :platform => :jruby
+  gem 'jdbc-sqlite3', :platform => :jruby
+  gem 'activerecord-jdbcsqlite3-adapter', :platform => :jruby
 
   # Rubinius support
   platforms :rbx do
@@ -25,4 +25,4 @@ group :development, :test do
 end
 
 # jquery-rails is used by the dummy application
-gem "jquery-rails"
+gem 'jquery-rails'
