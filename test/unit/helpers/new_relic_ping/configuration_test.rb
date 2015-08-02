@@ -33,7 +33,7 @@ class ConfigurationTest < ActiveSupport::TestCase
     state, results = current_config.status_check
     assert_equal :ok, state
     assert_equal 'true', results['database_response']
-    assert_match /\d\.\d+ seconds/, results['database_time']
+    assert_match /[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? seconds/, results['database_time']
     assert_equal '4', results['maths_response']
   end
 
