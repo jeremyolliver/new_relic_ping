@@ -20,7 +20,7 @@ module NewRelicPing
     def send_response(status_msg, meta_info = {})
       write_headers(meta_info)
       content_type = (Rails::VERSION::MAJOR < 5 ? Mime::TEXT : Mime[:text])
-      render :text => status_msg.to_s, :status => status_msg, :content_type => content_type
+      render :plain => status_msg.to_s, :status => status_msg, :content_type => content_type
     end
 
     def write_headers(values = {})
